@@ -1,0 +1,260 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Botón de modo oscuro */
+.dark-mode-toggle {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.dark-mode-toggle:hover {
+  background: #555;
+  transform: scale(1.05);
+}
+
+/* Modo oscuro */
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.dark-mode .container {
+  background: #2c2c2c;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .dark-mode-toggle {
+  background: #ddd;
+  color: #333;
+}
+
+/* Formulario de creación */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #f9f9f9;
+  transition: 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.dark-mode input, .dark-mode select {
+  background: #333;
+  border-color: #666;
+  color: white;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Lista de productos */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e3f2f5;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.02);
+}
+
+.dark-mode .product-item {
+  background: #3a3a3a;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Botones de acción */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn, .save-btn, .cancel-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+.edit-btn {
+  background: #ffc107;
+  color: black;
+}
+
+.edit-btn:hover {
+  background: #e0a800;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+.save-btn {
+  background: #28a745;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #5a6268;
+  transform: scale(1.05);
+}
+
+/* Estilos en edición */
+.product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-content input, .product-content select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.dark-mode .product-content input, .dark-mode .product-content select {
+  background: #444;
+  border-color: #666;
+  color: white;
+}
+
+input {
+  width: 100%; /* Asegura que el input se ajuste al contenedor */
+  max-width: 100%; /* Evita que se desborde */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+
+/* Estilos para el checkbox del estado del equipo */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 12px;
+  position: relative;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+  background: #28a745;
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+/* Modo oscuro */
+.dark-mode .checkbox-container input[type="checkbox"] {
+  background: #666;
+}
+
+.dark-mode .checkbox-container input[type="checkbox"]:checked {
+  background: #17a2b8;
+}
+
+.dark-mode .checkbox-container input[type="checkbox"]::before {
+  background: #ddd;
+}
