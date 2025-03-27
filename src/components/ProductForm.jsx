@@ -7,10 +7,11 @@ const ProductForm = ({ onAdd }) => {
   const [state, setState] = useState("");
   const [independentmonitor, setIndependentmonitor] = useState(false);
   const [weight, setWeight] = useState(0);
+  const [entryDate, setEntryDate] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (product.trim() && category.trim()) {
+    if (product.trim() && category.trim() && entryDate) {
       onAdd({
         name: product,
         category,
@@ -20,6 +21,7 @@ const ProductForm = ({ onAdd }) => {
           ? "Monitor Independiente"
           : "Monitor Integrado",
         weight,
+        entryDate,
       });
       setProduct("");
       setCategory("");
@@ -27,6 +29,7 @@ const ProductForm = ({ onAdd }) => {
       setState("");
       setIndependentmonitor(false);
       setWeight(0);
+      setEntryDate(""); 
     }
   };
 
@@ -87,6 +90,15 @@ const ProductForm = ({ onAdd }) => {
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
         />
+
+<label>Fecha de ingreso del equipo:</label>
+      <input
+        type="date"
+        value={entryDate}
+        onChange={(e) => setEntryDate(e.target.value)}
+        max={new Date().toISOString().split("T")[0]} // Restringe fechas futuras
+        required
+      />
 
       <button type="submit">Agregar</button>
     </form>
