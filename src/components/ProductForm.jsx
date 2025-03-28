@@ -29,79 +29,100 @@ const ProductForm = ({ onAdd }) => {
       setState("");
       setIndependentmonitor(false);
       setWeight(0);
-      setEntryDate(""); 
+      setEntryDate("");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
+
+  {/* Primera fila: Marca, Sala y Estado */}
+  <div className="form-row">
+    <input
+      type="text"
+      placeholder="Marca del Equipo"
+      value={product}
+      onChange={(e) => setProduct(e.target.value)}
+      className="input-field"
+    />
+    <select
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+      className="input-field"
+    >
+      <option value="">Seleccione la Sala</option>
+      <optgroup label="Edificio Giordano">
+        <option value="Sala 1E">Sala 1E</option>
+        <option value="Lab. Software">Lab. Software</option>
+      </optgroup>
+      <optgroup label="Edificio Santo Domingo">
+        <option value="Sala 1F">Sala 1F</option>
+        <option value="Sala 2F">Sala 2F</option>
+      </optgroup>
+    </select>
+    <select
+      value={state}
+      onChange={(e) => setState(e.target.value)}
+      className="input-field"
+    >
+      <option value="">Seleccione el estado</option>
+      <option value="Activo">Activo</option>
+      <option value="Inactivo">Inactivo</option>
+      <option value="Mantenimiento">Mantenimiento</option>
+    </select>
+  </div>
+
+  {/* Segunda fila: Peso y Fecha */}
+  <div className="form-row">
+    <div className="input-group">
+      <label className="input-label">Peso</label>
       <input
-        type="text"
-        placeholder="Marca del Equipo"
-        value={product}
-        onChange={(e) => setProduct(e.target.value)}
+        type="number"
+        placeholder="Peso del Equipo"
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+        className="input-field"
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="">Seleccione la Sala</option>
-        <optgroup label="Edificio Giordano">
-          <option value="Sala 1E">Sala 1E</option>
-          <option value="Lab. Software">Lab. Software</option>
-        </optgroup>
-        <optgroup label="Edificio Santo Domingo">
-          <option value="Sala 1F">Sala 1F</option>
-          <option value="Sala 2F">Sala 2F</option>
-        </optgroup>
-      </select>
-
-      {/* Checkbox para estado del equipo */}
-      <label class="checkbox-container">
-        <input
-          type="checkbox"
-          id="estado-equipo"
-          checked={isUsed}
-          onChange={() => setIsUsed(!isUsed)}
-        />
-        Equipo Usado
-      </label>
-
-      <select value={state} onChange={(e) => setState(e.target.value)}>
-        <option value="">Seleccione el estado</option>
-        <option value="Activo">Activo</option>
-        <option value="Inactivo">Inactivo</option>
-        <option value="Mantenimiento">Mantenimiento</option>
-      </select>
-
-      <label class="checkbox-container">
-        <input
-          type="checkbox"
-          id="estado-equipo"
-          checked={independentmonitor}
-          onChange={() => setIndependentmonitor(!independentmonitor)}
-        />
-        Monitor Independiente
-      </label>
-
-      <label class="text-left">
-        Peso
-      </label>
-      <input
-          type="number"
-          placeholder="Peso del Equipo"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-        />
-
-<label>Fecha de ingreso del equipo:</label>
+    </div>
+    <div className="input-group">
+      <label className="input-label">Fecha de ingreso</label>
       <input
         type="date"
         value={entryDate}
         onChange={(e) => setEntryDate(e.target.value)}
-        max={new Date().toISOString().split("T")[0]} // Restringe fechas futuras
+        max={new Date().toISOString().split("T")[0]}
         required
+        className="input-field"
       />
+    </div>
+  </div>
 
-      <button type="submit">Agregar</button>
-    </form>
+  {/* Checkboxes en línea */}
+  <div className="checkbox-row">
+    <label className="checkbox-container">
+      <input
+        type="checkbox"
+        checked={isUsed}
+        onChange={() => setIsUsed(!isUsed)}
+      />
+      Equipo Usado
+    </label>
+    <label className="checkbox-container">
+      <input
+        type="checkbox"
+        checked={independentmonitor}
+        onChange={() => setIndependentmonitor(!independentmonitor)}
+      />
+      Monitor Independiente
+    </label>
+  </div>
+
+  {/* Botón */}
+  <div className="button-container">
+    <button type="submit" className="submit-button">Agregar</button>
+  </div>
+</form>
+
   );
 };
 

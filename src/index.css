@@ -1,6 +1,6 @@
 /* Estilos generales */
-body { 
-  font-family: 'Arial', sans-serif;
+body {
+  font-family: "Arial", sans-serif;
   background-color: #f4f4f4;
   color: #333;
   margin: 0;
@@ -31,11 +31,11 @@ body {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.theme-toggle:hover { /* Efecto hover  para el botón modo claro*/
+.theme-toggle:hover {
+  /* Efecto hover  para el botón modo claro*/
   background: #555;
   transform: scale(1.05);
 }
-
 
 /* Modo oscuro */
 .dark {
@@ -53,6 +53,15 @@ body {
   color: #fff;
 }
 
+.dark .form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #2c2c2c;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
 
 /* Modo azul */
 .blue {
@@ -60,49 +69,181 @@ body {
   color: #fff; /* Color de texto */
 }
 
-.blue .container { /* Contenedor */
+.blue .container {
+  /* Contenedor */
   background: #619af5; /* Fondo */
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Sombra */
 }
 
-.blue .theme-toggle { /* Botón de cambio de tema */
-  background: #fff; /* Fondo */
+.blue .theme-toggle {
+  /* Botón de cambio de tema */
+  background: #ffdd00; /* Fondo */
   color: #2563eb; /* Texto */
 }
 
+.blue .form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #619af5;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  text-align: center;
+}
 
+/* Modo Amarillo */
+.yellow {
+  background-color: #ffdd00; /* Color de fondo */
+  color: #000000; /* Color de texto */
+}
 
-/* Formulario de creación */
-form {
+.yellow .container {
+  /* Contenedor */
+  background: #fcff36; /* Fondo */
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Sombra */
+  border: 1px solid #000000;
+}
+
+.yellow .theme-toggle {
+  /* Botón de cambio de tema */
+  background: #ff83c9; /* Fondo */
+  color: #fafd35; /* Texto */
+}
+
+.yellow .form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f9fc59;;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+.pink {
+  background-color: #ff83c9; /* Color de fondo */
+  color: #000000; /* Color de texto */
+}
+
+.pink .container {
+  /* Contenedor */
+  background: #ff9dd4c6; /* Fondo */
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* Sombra */
+  border: 1px solid #000000;
+}
+
+.pink .theme-toggle {
+  /* Botón de cambio de tema */
+  background: #ffffff; /* Fondo */
+  color: #fa0fb7; /* Texto */
+}
+
+.pink .form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ff8dcec6;;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #000000;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.form-row {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-input, select { /* Estilos para los inputs y selects del formulario */
+.input-group {
+  flex: 1;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.input-field {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  background: #f9f9f9;
-  transition: 0.3s ease;
+  border-radius: 5px;
 }
 
-input:focus, select:focus { /* Efecto focus para los inputs y selects */
+.checkbox-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+
+input:focus,
+select:focus {
+  /* Efecto focus para los inputs y selects */
   border-color: #007bff;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
   outline: none;
 }
 
-.dark input, .dark select { /* Modo oscuro para el select del formulario */
+
+
+.dark input,
+.dark select {
+  /* Modo oscuro para el select del formulario */
   background: #333;
   border-color: #666;
   color: white; /* Texto */
 }
 
-button { /* Estilos para el botón del formulario */
+button {
+  /* Estilos para el botón del formulario */
   background: #007bff;
   color: white;
   border: none;
@@ -113,7 +254,8 @@ button { /* Estilos para el botón del formulario */
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-button:hover { /* Efecto hover para el botón del formulario */
+button:hover {
+  /* Efecto hover para el botón del formulario */
   background: #0056b3;
   transform: scale(1.01); /* Efecto de escala */
 }
@@ -124,7 +266,8 @@ ul {
   padding: 0;
 }
 
-.product-item { /* Estilos para los elementos de la lista de productos */
+.product-item {
+  /* Estilos para los elementos de la lista de productos */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -132,32 +275,51 @@ ul {
   padding: 12px;
   margin: 8px 0;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
-.product-item:hover { /* Efecto hover para los elementos de la lista de productos */
+.product-item:hover {
+  /* Efecto hover para los elementos de la lista de productos */
   transform: scale(1.02);
 }
 
-.dark .product-item { /* Modo oscuro para la lista de productos */
+.dark .product-item {
+  /* Modo oscuro para la lista de productos */
   background: #3a3a3a;
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
-.blue .product-item { /* Modo azul para la lista de productos */
+.blue .product-item {
+  /* Modo azul para la lista de productos */
   background: #3f598f;
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
 
+.yellow .product-item {
+  /* Modo azul para la lista de productos */
+  background: hsl(52, 100%, 50%);
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  border: 1px solid #000000;
+}
 
+.pink .product-item {
+  /* Modo azul para la lista de productos */
+  background: #ff83c9;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  border: 1px solid #000000;
+}
 /* Botones de acción */
 .button-group {
   display: flex;
   gap: 10px;
 }
 
-.edit-btn, .delete-btn, .save-btn, .cancel-btn { /* Estilos para los botones de acción */
+.edit-btn,
+.delete-btn,
+.save-btn,
+.cancel-btn {
+  /* Estilos para los botones de acción */
   padding: 10px 15px;
   font-size: 14px;
   border-radius: 6px;
@@ -165,42 +327,64 @@ ul {
   transition: 0.3s ease, transform 0.2s ease;
 }
 
-.edit-btn { /* Estilos para el botón de editar */
+.edit-btn {
+  /* Estilos para el botón de editar */
   background: #ffc107;
   color: black;
 }
 
-.edit-btn:hover { /* Efecto hover para el botón de editar */
+.edit-btn:hover {
+  /* Efecto hover para el botón de editar */
   background: #e0a800;
   transform: scale(1.05);
 }
 
-.delete-btn { /* Estilos para el botón de eliminar */
+.yellow .edit-btn {
+  /* Estilos para el botón de editar */
+  background: #ffc107;
+  color: black;
+  border: 1px solid #000000;
+}
+
+.yellow .edit-btn:hover {
+  /* Efecto hover para el botón de editar */
+  background: #e0a800;
+  transform: scale(1.05);
+  border: 1px solid #000000;
+}
+
+.delete-btn {
+  /* Estilos para el botón de eliminar */
   background: #dc3545;
   color: white;
 }
 
-.delete-btn:hover { /* Efecto hover para el botón de eliminar */
+.delete-btn:hover {
+  /* Efecto hover para el botón de eliminar */
   background: #c82333;
   transform: scale(1.05);
 }
 
-.save-btn { /* Estilos para el botón de guardar */
+.save-btn {
+  /* Estilos para el botón de guardar */
   background: #28a745;
   color: white;
 }
 
-.save-btn:hover { /* Efecto hover para el botón de guardar */
+.save-btn:hover {
+  /* Efecto hover para el botón de guardar */
   background: #218838;
   transform: scale(1.05);
 }
 
-.cancel-btn { /* Estilos para el botón de cancelar */
+.cancel-btn {
+  /* Estilos para el botón de cancelar */
   background: #6c757d;
   color: white;
 }
 
-.cancel-btn:hover { /* Efecto hover para el botón de cancelar */
+.cancel-btn:hover {
+  /* Efecto hover para el botón de cancelar */
   background: #5a6268;
   transform: scale(1.05);
 }
@@ -212,32 +396,53 @@ ul {
   gap: 8px;
 }
 
-.product-content input, .product-content select { /* Estilos para los inputs y selects de la lista de productos */
+.product-content input,
+.product-content select {
+  /* Estilos para los inputs y selects de la lista de productos */
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
 
-.dark .product-content input, .dark .product-content select {  /* Modo oscuro  para la lista de productos */ 
+.dark .product-content input,
+.dark .product-content select {
+  /* Modo oscuro  para la lista de productos */
   background: #444; /* Fondo */
   border-color: #666; /* Borde */
   color: white; /* Texto */
 }
 
-.blue .product-content input, .blue .product-content select {  /* Modo azul  para la lista de productos */ 
+.blue .product-content input,
+.blue .product-content select {
+  /* Modo azul  para la lista de productos */
   background: #72abe9; /* Fondo */
   border-color: #aec5f8; /* Borde */
   color: white; /* Texto */
 }
 
+.yellow .product-content input,
+.yellow .product-content select {
+  /* Modo azul  para la lista de productos */
+  background: #fbff0d; /* Fondo */
+  border-color: #e79a02; /* Borde */
+  color: rgb(0, 0, 0); /* Texto */
+}
 
-input { /* Estilos para los inputs */
+.pink .product-content input,
+.pink .product-content select {
+  /* Modo azul  para la lista de productos */
+  background: #ff99d3; /* Fondo */
+  border-color: #ff0090; /* Borde */
+  color: rgb(0, 0, 0); /* Texto */
+}
+
+input {
+  /* Estilos para los inputs */
   width: 100%; /* Asegura que el input se ajuste al contenedor */
   max-width: 100%; /* Evita que se desborde */
   box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
-
 
 /* Estilos para el checkbox del estado del equipo */
 .checkbox-container {
@@ -248,7 +453,8 @@ input { /* Estilos para los inputs */
   font-size: 16px;
 }
 
-.checkbox-container input[type="checkbox"] { /* Estilos para el checkbox */
+.checkbox-container input[type="checkbox"] {
+  /* Estilos para el checkbox */
   appearance: none;
   width: 40px;
   height: 20px;
@@ -259,7 +465,8 @@ input { /* Estilos para los inputs */
   cursor: pointer;
 }
 
-.checkbox-container input[type="checkbox"]::before { /* Estilos para el before del checkbox */
+.checkbox-container input[type="checkbox"]::before {
+  /* Estilos para el before del checkbox */
   content: "";
   position: absolute;
   width: 16px;
@@ -271,16 +478,18 @@ input { /* Estilos para los inputs */
   transition: transform 0.3s ease;
 }
 
-.checkbox-container input[type="checkbox"]:checked { /* Estilos para el checkbox checked */
+.checkbox-container input[type="checkbox"]:checked {
+  /* Estilos para el checkbox checked */
   background: #28a745;
 }
 
-.checkbox-container input[type="checkbox"]:checked::before { /* Estilos para el before del checkbox checked */
+.checkbox-container input[type="checkbox"]:checked::before {
+  /* Estilos para el before del checkbox checked */
   transform: translateX(20px);
 }
 
 /* Modo oscuro */
-.dark .checkbox-container input[type="checkbox"] {  
+.dark .checkbox-container input[type="checkbox"] {
   background: #666;
 }
 
@@ -292,20 +501,51 @@ input { /* Estilos para los inputs */
   background: #ddd;
 }
 
-
 /* Modo azul */
-.blue .checkbox-container input[type="checkbox"] { /* Modo azul para el checkbox */
+.blue .checkbox-container input[type="checkbox"] {
+  /* Modo azul para el checkbox */
   background: #666666;
 }
 
-.blue .checkbox-container input[type="checkbox"]:checked { /* Modo azul para el checkbox checked*/
+.blue .checkbox-container input[type="checkbox"]:checked {
+  /* Modo azul para el checkbox checked*/
   background: #174ab8;
 }
 
-.blue .checkbox-container input[type="checkbox"]::before { /* Modo azul para el checkbox before */
+.blue .checkbox-container input[type="checkbox"]::before {
+  /* Modo azul para el checkbox before */
   background: #ddd;
 }
 
+.yellow .checkbox-container input[type="checkbox"] {
+  /* Modo azul para el checkbox */
+  background: #ccc;
+}
+
+.yellow .checkbox-container input[type="checkbox"]:checked {
+  /* Modo azul para el checkbox checked*/
+  background: #ffdd00;
+}
+
+.yellow .checkbox-container input[type="checkbox"]::before {
+  /* Modo azul para el checkbox before */
+  background: #ffffff;
+}
+
+.pink .checkbox-container input[type="checkbox"] {
+  /* Modo azul para el checkbox */
+  background: #ccc;
+}
+
+.pink .checkbox-container input[type="checkbox"]:checked {
+  /* Modo azul para el checkbox checked*/
+  background: #f955d5;
+}
+
+.pink .checkbox-container input[type="checkbox"]::before {
+  /* Modo azul para el checkbox before */
+  background: #ffffff;
+}
 
 /* Contenedor de filtros: alineado al centro */
 .filter-container {
@@ -348,11 +588,7 @@ input { /* Estilos para los inputs */
   font-size: 16px;
 }
 
-.clear-btn:hover { /* Efecto hover para el botón de limpiar */
+.clear-btn:hover {
+  /* Efecto hover para el botón de limpiar */
   background-color: #610c09;
-}
-
-.text-left {
-  text-align: left;
-  margin-bottom: 0.5px;
 }

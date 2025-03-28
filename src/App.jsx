@@ -43,7 +43,8 @@ const App = () => { // Componente funcional App
   };
 
   const toggleTheme = () => { // Función que cambia el tema de la aplicación
-    const newTheme = theme === "light" ? "dark" : theme === "dark" ? "blue" : "light"; // Cambia el tema actual al siguiente en el ciclo (light -> dark -> blue -> light) 
+    const newTheme = theme === "light" ? "dark" : theme === "dark" ? "blue" : 
+    theme === "blue" ? "yellow": theme === "yellow" ? "pink" : "light"; // Cambia el tema actual al siguiente en el ciclo (light -> dark -> blue -> light) 
     document.body.classList.remove(theme);
     document.body.classList.add(newTheme);
     setTheme(newTheme);
@@ -53,7 +54,8 @@ const App = () => { // Componente funcional App
   return ( // Renderiza el formulario y la lista de productos
     <div className="container">
       <button className="theme-toggle" onClick={toggleTheme}>
-        {theme === "light" ? "🌙 Modo Oscuro" : theme === "dark" ? "🔵 Modo Azul" : "☀ Modo Claro"} 
+        {theme === "light" ? "🌙 Modo Oscuro" : theme === "dark" ? "🔵 Modo Azul" : theme === "blue" ? "📁 Modo Amarillo" :
+        theme === "yellow" ? "🦩 Modo Rosado" : "☀ Modo Claro"} 
       </button>
       <h1>Inventario de Equipos de la USTA</h1>
       <ProductForm onAdd={addProduct} />
