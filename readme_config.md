@@ -15,3 +15,6 @@ App.jsx
 
 # # Actualizar el código del 
 index.css 
+
+## para implementar la navegación entre vistas
+npm install react-router-dom

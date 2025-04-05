@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductList = ({ products, onDelete, onEdit }) => {
+  const navigate = useNavigate();
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState("");
   const [editCategory, setEditCategory] = useState("");
@@ -28,13 +30,13 @@ const ProductList = ({ products, onDelete, onEdit }) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [editIndex]); // Se ejecuta cuando editIndex cambia
+  }, [editIndex]);
 
   const handleEdit = (index, product) => {
     setEditIndex(index);
     setEditValue(product.name);
     setEditCategory(product.category);
-    setEditStatus(product.status === "Usado"); // Convertir a booleano
+    setEditStatus(product.status === "Usado");
     setEditState(product.state);
     setEditStatusMonitor(product.statusMonitor === "Monitor Independiente");
     setEditWeight(product.weight);
@@ -43,7 +45,6 @@ const ProductList = ({ products, onDelete, onEdit }) => {
 
   const handleSave = (index) => {
     const today = new Date().toISOString().split("T")[0];
-
     if (editEntryDate > today) {
       alert("La fecha de ingreso no puede ser futura.");
       return;
@@ -77,16 +78,14 @@ const ProductList = ({ products, onDelete, onEdit }) => {
   };
 
   const handleClearSearch = () => {
-    // Función que maneja la limpieza de la búsqueda
     setSearchTerm("");
     setStartDate("");
     setEndDate("");
   };
 
   const filteredProducts = products.filter((product) => {
-    // Filtra los productos según el término de búsqueda y el rango de fechas
     const matchesSearch =
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) || // Compara el nombre del producto con el término de búsqueda
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.status.toLowerCase().includes(searchTerm.toLowerCase());
 
@@ -100,10 +99,8 @@ const ProductList = ({ products, onDelete, onEdit }) => {
   return (
     <div>
       <h2>Lista de Productos</h2>
-      {/* Barra de búsqueda y filtro de fechas en una sola línea */}
+
       <div className="filter-container">
-        {" "}
-        {/* Contenedor de la barra de búsqueda y filtro de fechas */}
         <input
           type="text"
           placeholder="Buscar producto..."
@@ -128,8 +125,8 @@ const ProductList = ({ products, onDelete, onEdit }) => {
         <button onClick={handleClearSearch} className="clear-btn">
           Limpiar
         </button>
-      </div>{" "}
-      {/* Fin del contenedor de la barra de búsqueda y filtro de fechas */}
+      </div>
+
       <ul>
         {filteredProducts.map((product, index) => (
           <li key={index} className="product-item">
@@ -156,11 +153,9 @@ const ProductList = ({ products, onDelete, onEdit }) => {
                     </optgroup>
                   </select>
 
-                  {/* Checkbox para editar estado del equipo */}
-                  <label class="checkbox-container">
+                  <label className="checkbox-container">
                     <input
                       type="checkbox"
-                      id="estado-equipo"
                       checked={editStatus}
                       onChange={() => setEditStatus(!editStatus)}
                     />
@@ -177,17 +172,18 @@ const ProductList = ({ products, onDelete, onEdit }) => {
                     <option value="Mantenimiento">Mantenimiento</option>
                   </select>
 
-                  <label class="checkbox-container">
+                  <label className="checkbox-container">
                     <input
                       type="checkbox"
-                      id="estado-equipo"
                       checked={editStatusMonitor}
-                      onChange={() => setEditStatusMonitor(!editStatusMonitor)}
+                      onChange={() =>
+                        setEditStatusMonitor(!editStatusMonitor)
+                      }
                     />
                     Monitor Independiente
                   </label>
 
-                  <label class="text-left">Peso</label>
+                  <label className="text-left">Peso</label>
                   <input
                     type="number"
                     placeholder="Peso del Equipo"
@@ -206,7 +202,8 @@ const ProductList = ({ products, onDelete, onEdit }) => {
                 <span>
                   {product.name} - <strong>{product.category}</strong> -{" "}
                   {product.status} - <strong>{product.state}</strong> -{" "}
-                  {product.statusMonitor} - <strong>{product.weight} Kg </strong> -  {product.entryDate}
+                  {product.statusMonitor} -{" "}
+                  <strong>{product.weight} Kg </strong> - {product.entryDate}
                 </span>
               )}
             </div>
@@ -225,6 +222,13 @@ const ProductList = ({ products, onDelete, onEdit }) => {
                 </>
               ) : (
                 <>
+                  <button
+                    onClick={() =>
+                      navigate("/detalle-producto", { state: { product } })
+                    }
+                  >
+                    Ver Detalles
+                  </button>
                   <button
                     className="edit-btn"
                     onClick={() => handleEdit(index, product)}

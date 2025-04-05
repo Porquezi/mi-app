@@ -592,3 +592,87 @@ input {
   /* Efecto hover para el botón de limpiar */
   background-color: #610c09;
 }
+
+/* Estilos para la tabla de detalles */
+
+.detail-container { /* Contenedor de detalles */
+  max-width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.detail-table { /* Tabla de detalles */
+  width: 100%; /* Ancho completo */
+  border-collapse: collapse; /* Colapsa los bordes */
+  margin: 10px 0; /* Espacio entre la tabla y otros elementos */
+  overflow: hidden; /* Para que los bordes redondeados afecten a los bordes internos */
+}
+
+.detail-table th, .detail-table td { /* Estilos para las celdas de la tabla */
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.detail-table th { /* Estilos para el encabezado de la tabla */
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.dark .detail-table th { /* Estilos para el encabezado en modo oscuro */
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #14171e; /* Color del texto en modo oscuro */
+}
+
+.dark .detail-table td { /* Estilos para las celdas en modo oscuro */
+  color: #f8f2f2; /* Color del texto en modo oscuro */
+}
+
+.blue .detail-table th { /* Estilos para el encabezado en modo azul */
+  background-color: #ebebeb;
+  font-weight: bold;
+  color: #14171e; /* Color del texto en modo azul */
+}
+
+.blue .detail-table td { /* Estilos para las celdas en modo azul */
+  color: #f8f2f2; /* Color del texto en modo azul */
+  
+}
+
+.yellow .detail-table th { /* Estilos para el encabezado en modo amarillo */
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  font-weight: bold;
+  color: #14171e; /* Color del texto en modo amarillo */
+}
+
+.yellow .detail-table td { /* Estilos para las celdas en modo amarillo */
+  color: #000000; /* Color del texto en modo amarillo */
+  border: 1px solid #000000;
+}
+
+.pink .detail-table th { /* Estilos para el encabezado en modo rosado */
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  font-weight: bold;
+  color: #14171e; /* Color del texto en modo rosado */
+}
+
+.pink .detail-table td { /* Estilos para las celdas en modo rosado */
+  color: #000000; /* Color del texto en modo rosado */
+  border: 1px solid #000000;
+}
+.back-button { /* Botón de volver */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.back-button:hover { /* Efecto hover para el botón de volver */
+  background-color: #0056b3;
+}
