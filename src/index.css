@@ -676,3 +676,21 @@ input {
 .back-button:hover { /* Efecto hover para el botón de volver */
   background-color: #0056b3;
 }
+
+.centro {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  height: 100%; /* Asegúrate de que el contenedor tenga altura */
+  margin: 10px 0; /* Espaciado opcional */
+}
+
+.centro input{
+  width: 100%; /* Asegura que el input ocupe todo el ancho */
+  max-width: 300px; /* Limita el ancho máximo del input */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde gris claro */
+  font-size: 16px; /* Tamaño de fuente */
+  text-align: center; /* Centra el texto dentro del input */
+}

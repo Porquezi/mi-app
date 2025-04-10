@@ -47,6 +47,10 @@ const ProductDetail = ({ onEdit }) => {
       ) === "Monitor Independiente"
   );
 
+  const [editImage, setEditImage] = useState(() =>
+    loadSavedData("image", product?.image || null)
+  );
+
   // Save data to localStorage whenever any edit state changes
   useEffect(() => {
     const editingData = {
@@ -59,6 +63,7 @@ const ProductDetail = ({ onEdit }) => {
       statusMonitor: editStatusMonitor
         ? "Monitor Independiente"
         : "Monitor Integrado",
+      image: editImage,
     };
     localStorage.setItem(
       `editingProduct-${productIndex}`,
@@ -73,6 +78,7 @@ const ProductDetail = ({ onEdit }) => {
     editStatus,
     editStatusMonitor,
     productIndex,
+    editImage,
   ]);
 
   // Save editing state to localStorage
@@ -95,6 +101,7 @@ const ProductDetail = ({ onEdit }) => {
       statusMonitor: editStatusMonitor
         ? "Monitor Independiente"
         : "Monitor Integrado",
+      image: editImage,
     };
 
     if (productIndex !== undefined) {
@@ -105,6 +112,17 @@ const ProductDetail = ({ onEdit }) => {
       navigate(-1);
     } else {
       console.error("El índice del producto no está definido.");
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setEditImage(reader.result); // Guarda la imagen como base64
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -120,6 +138,7 @@ const ProductDetail = ({ onEdit }) => {
       {isEditing ? (
         <>
           <h2>Editar Producto</h2>
+
           <div className="product-content">
             <label>
               Marca del Equipo:
@@ -188,6 +207,22 @@ const ProductDetail = ({ onEdit }) => {
                 onChange={() => setEditStatusMonitor(!editStatusMonitor)}
               />
             </label>
+            {/* Vista previa de la imagen existente */}
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+            {editImage && (
+              <div>
+                <img
+                  src={editImage}
+                  alt="Vista previa"
+                  style={{
+                    width: "200px",
+                    height: "200px",
+                    marginBottom: "5px",
+                    border: "1px solid #ccc",
+                  }}
+                />
+              </div>
+            )}
           </div>
           <div className="button-group">
             <button className="save-button" onClick={handleSave}>
@@ -201,6 +236,18 @@ const ProductDetail = ({ onEdit }) => {
       ) : (
         <>
           <h2>Detalles del Producto</h2>
+
+          {/* Vista previa de la imagen */}
+          {editImage && (
+            <div style={{ marginBottom: "20px" }}>
+              <img
+                src={editImage} // se maneja en base 64
+                alt={editImage}
+                style={{ width: "200px", height: "200px", borderRadius: "5px" }}
+              />
+            </div>
+          )}
+
           <table className="detail-table">
             <tbody>
               <tr>
