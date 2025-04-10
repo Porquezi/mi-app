@@ -32,6 +32,10 @@ const ProductList = ({ products, onDelete, onEdit }) => {
     };
   }, [editIndex]);
 
+  const handleViewDetails = (product, index) => {
+    navigate("/detalle-producto", { state: { product: { ...product, index } } });
+  };
+
   const handleEdit = (index, product) => {
     setEditIndex(index);
     setEditValue(product.name);
@@ -223,9 +227,7 @@ const ProductList = ({ products, onDelete, onEdit }) => {
               ) : (
                 <>
                   <button
-                    onClick={() =>
-                      navigate("/detalle-producto", { state: { product } })
-                    }
+                    onClick={() => handleViewDetails(product, index) }
                   >
                     Ver Detalles
                   </button>

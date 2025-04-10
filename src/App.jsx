@@ -44,7 +44,6 @@ const App = () => {
     );
     setProducts(updatedProducts);
   };
-
   const toggleTheme = () => {
     const newTheme =
       theme === "light"
@@ -89,7 +88,12 @@ const App = () => {
               </>
             }
           />
-          <Route path="/detalle-producto" element={<ProductDetail />} />
+          <Route path="/detalle-producto" element={<ProductDetail
+           onEdit={(index, updatedProduct) => editProduct(index, updatedProduct)}
+            
+           />
+          
+        } />
         </Routes>
       </div>
     </Router>
